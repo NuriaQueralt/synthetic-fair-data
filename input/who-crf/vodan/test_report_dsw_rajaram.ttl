@@ -1,0 +1,984 @@
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix vodan: <http://purl.org/vodan/whocovid19crfsemdatamodel/> .
+@prefix vodan_inst: <http://purl.org/vodan/whocovid19crfsemdatamodel/instances/> .
+@prefix vodan_avpu: <http://purl.org/vodan/whocovid19crfsemdatamodel/instances/avpu-list/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+# Using VODAN ontology 1.1.4
+# See: https://github.com/FAIRDataTeam/WHO-COVID-CRF
+
+<http://localhost:8080/crfs/detail/5aaf5bfd-52a1-4dee-85d3-67a6778c713d> a vodan:who-covid-19-rapid-crf ;
+    # MODULE 1 (ADMISSION)
+    obo:BFO_0000051 [
+      a vodan:Module_1 ;
+      obo:BFO_0000051 [
+        a vodan:Facility_name ;
+        vodan:has_literal_value "LUMC";
+      ] ;
+      obo:BFO_0000051 [
+        a vodan:Country ;
+        vodan:has_value <http://www.wikidata.org/entity/Q29999>;
+      ] ;
+      obo:BFO_0000051 [
+        a vodan:Enrolment ;
+        vodan:has_literal_value "2020-08-14"^^xsd:date;
+      ] ;
+      # ADMISSION: INCLUSION CRITERIA
+      obo:BFO_0000051 [
+        a vodan:Inclusion ;
+        obo:BFO_0000051 [
+          a vodan:Inclusion_pathogen ;
+          vodan:has_literal_value "false"^^xsd:boolean;
+        ] ;
+      ] ;
+      # ADMISSION: DEMOGRAPHICS
+      obo:BFO_0000051 [
+        a vodan:Demographics ;
+        obo:BFO_0000051 [
+          a vodan:Sex ;
+          vodan:has_value vodan_inst:C46109;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Birth ;
+          vodan:has_literal_value "1950-10-02"^^xsd:date;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Healtcare_worker ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Laboratory_Worker ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Pregnant ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+      ] ;
+      # ADMISSION: VITAL SIGNS
+      obo:BFO_0000051 [
+        a vodan:Vital_signs ;
+        obo:BFO_0000051 [
+          a vodan:Symptom_onset ;
+          vodan:has_literal_value "2020-08-14"^^xsd:date ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:admission ;
+          vodan:has_literal_value "2020-08-14"^^xsd:date ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Temperature_admission ;
+          vodan:has_literal_value "38"^^xsd:decimal ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Respiratory_rate_admission ;
+          vodan:has_literal_value "23"^^xsd:integer ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:BP_systolic_admission ;
+          vodan:has_literal_value "120"^^xsd:integer ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:BP_diastolic_admission ;
+          vodan:has_literal_value "90"^^xsd:integer ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Severe_dehydration_admission ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Capillary_refill_admission ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Oxygen_saturation_admission ;
+          vodan:has_literal_value "2"^^xsd:integer ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Oxygen_saturation_expl_admission ;
+          vodan:has_value vodan_inst:C17998 ;  # UNKNOWN
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:AVPU_scale_admission ;
+          vodan:has_value vodan_avpu:P ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:GCS_admission ;
+          vodan:has_literal_value "5"^^xsd:integer ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Malnutrition ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Arm ;
+          vodan:has_literal_value "3"^^xsd:integer ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Height ;
+          vodan:has_literal_value "180"^^xsd:integer ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Weight ;
+          vodan:has_literal_value "79"^^xsd:integer ;
+        ] ;
+      ] ;
+      # ADMISSION: CO-MORBIDITIES
+      obo:BFO_0000051 [
+        a vodan:Co-morbidities ;
+        obo:BFO_0000051 [
+          a vodan:Cardiac_disease ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Hypertension ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Pulmonary_disease ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Asthma ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Kidney_disease ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Neurological_disorder ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Diabetes ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Smoking ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Tuberculosis ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Asplenia ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Other_comorbidity ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+      ] ;
+      # ADMISSION: PRE-ADMISSION and CHRONIC MEDICATION
+      obo:BFO_0000051 [
+        a vodan:pre-admission ;
+        obo:BFO_0000051 [
+          a vodan:ACE_inhibitors_pre_admission ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:ARBs_pre_admission ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:NSAID_pre_admission ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:NSAID_pre_admission ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Antiviral ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+          obo:BFO_0000051 [
+            a vodan:Which_antiviral ;
+            vodan:has_value vodan:Chloroquine_hydroxychloroquine ;
+          ] ;
+        ] ;
+      ] ;
+      # ADMISSION: SIGNS AND SYMPTOMS ON ADMISSION
+      obo:BFO_0000051 [
+        a vodan:signs_and_symptoms ;
+        obo:BFO_0000051 [
+          a vodan:Fever ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Cough_signs ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Cough_sputum_signs ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Cough_haemoptysis ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Sore_throat_signs ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Rhinorrhoea ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Wheezing ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Chest_pain_signs ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Myalgia_signs ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Arthralgia ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Fatigue ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Loss_of_taste_signs ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Loss_of_smell_signs ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Shortness_of_breath_signs ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Inability_to_walk ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Lower_check_wall_indrawing ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Headache ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Altered_consciousness ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Seizures_signs ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Abdominal_pain ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Vomiting_signs ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Diarrhoea_sign ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Conjunctivitis_sign ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Skin_rash ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Skin_ulcers ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Lymphadenopathy ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Lymphadenopathy ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Other_signs_signs ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+      ] ;
+      # ADMISSION: MEDICATION
+      obo:BFO_0000051 [
+        a vodan:Medication ;
+        obo:BFO_0000051 [
+          a vodan:oral_orgastric_fluids ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Intravenous_fluids ;
+          vodan:has_value vodan_inst:C49488 ;  # YES
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Antiviral ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Corticosteroid ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Antibiotic ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Antifungal_agent ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Antimalarial ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Experimental_agent ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:NSAID_medication ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:ACE_inhibitors_medication ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:ARBs_medication ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Systemic_anticoagulation ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+      ] ;
+      # ADMISSION: SUPPORTIVE CARE
+      obo:BFO_0000051 [
+        a vodan:Supportive_care ;
+        obo:BFO_0000051 [
+          a vodan:ICU_admission ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Oxygen_therapy ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Non-invasive_ventilation ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Invasive_ventilation ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Inotropes_vasopressors ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:ECMO_support ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Prone_position ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+      ] ;
+      # ADMISSION: LABORATORY RESULTS
+      obo:BFO_0000051 [
+        a vodan:Laboratory_results ;
+        obo:BFO_0000051 [
+          a vodan:Haemoglobin ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:WBC_count ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Haematocrit ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Platelets ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:APTT_APTR ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:PT ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:INR ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:ALT_SGPT ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Total_bilirubin ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:AST_SGOT ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Urea_BUN ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Lactate ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Creatinine ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Sodium ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Potassium ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Procalcitonin ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:CRP ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:LDH ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Creatine_kinase ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Troponin ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:ESR ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:D-dimer ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Ferritin ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:IL-6 ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+      ] ;
+    ] ;
+    # MODULE 2 (FOLLOW-UPs): 1 follow-ups in total# FOLLOW-UP #0 (date: 2020-08-14)
+    obo:BFO_0000051 [
+      a vodan:Module_2 ;
+      obo:BFO_0000051 [
+        a vodan:Follow-up_date ;
+        vodan:has_literal_value "2020-08-14"^^xsd:date ;
+      ] ;
+      # FOLLOW-UP #0: VITAL SIGNS
+      obo:BFO_0000051 [
+        a vodan:Daily_vital_signs ;
+        obo:BFO_0000051 [
+          a vodan:Temperature_vital ;
+          vodan:has_literal_value "39"^^xsd:decimal ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Heart_rate_vital ;
+          vodan:has_literal_value "78"^^xsd:integer ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Respiratory_rate_vital ;
+          vodan:has_literal_value "3"^^xsd:integer ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:BP_systolic_vital ;
+          vodan:has_literal_value "45"^^xsd:integer ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:BP_diastolic_vital ;
+          vodan:has_literal_value "435"^^xsd:integer ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Severe_dehydration_vital ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Capillary_refill_vital ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:GCS_vital ;
+          vodan:has_literal_value "5"^^xsd:integer ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Oxygen_saturation_vital ;
+          vodan:has_literal_value "5"^^xsd:integer ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Oxygen_saturation_expl_vital ;
+          vodan:has_value vodan_inst:C17998 ;  # UNKNOWN
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:AVPU_scale_vital ;
+          vodan:has_value vodan_avpu:V ;
+        ] ;
+      ] ;
+      # FOLLOW-UP #0: DAILY_FEATURES
+      obo:BFO_0000051 [
+        a vodan:Daily_clinical_features ;
+        obo:BFO_0000051 [
+          a vodan:Cough_daily ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Sore_throat_daily ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Chest_pain_daily ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Shortness_of_breath_daily ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Loss_of_taste_daily ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Loss_of_smell_daily ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Confusion ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Seizures_daily ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Vomiting_daily ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Diarrhoea_daily ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Conjunctivitis_daily ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Myalgia_daily ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Other_signs_daily ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+      ] ;
+      # FOLLOW-UP #0: LABORATORY RESULTS
+      obo:BFO_0000051 [
+        a vodan:Laboratory_results ;
+        obo:BFO_0000051 [
+          a vodan:Haemoglobin ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:WBC_count ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Haematocrit ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Platelets ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:APTT_APTR ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:PT ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:INR ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:ALT_SGPT ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Total_bilirubin ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:AST_SGOT ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Urea_BUN ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Lactate ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Creatinine ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Sodium ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Potassium ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Procalcitonin ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:CRP ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:LDH ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Creatine_kinase ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Troponin ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:ESR ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:D-dimer ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Ferritin ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:IL-6 ;
+          vodan:has_literal_value "Not done" ;
+        ] ;
+      ] ;
+      # FOLLOW-UP #0: MEDICATION
+      obo:BFO_0000051 [
+        a vodan:Medication ;
+        obo:BFO_0000051 [
+          a vodan:Antiviral ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Corticosteroid ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Antibiotic ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Antifungal_agent ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Antimalarial ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Experimental_agent ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:NSAID_medication ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:ACE_inhibitors_medication ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:ARBs_medication ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Systemic_anticoagulation ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+      ];
+      # FOLLOW-UP #0: SUPPORTIVE CARE
+      obo:BFO_0000051 [
+        a vodan:Supportive_care ;
+        obo:BFO_0000051 [
+          a vodan:ICU_admission ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Oxygen_therapy ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Non-invasive_ventilation ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Invasive_ventilation ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Inotropes_vasopressors ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:ECMO_support ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Prone_position ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:RRT_or_dialysis ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+      ] ;
+    ] ;
+    # MODULE 3 (ADMISSION)
+    obo:BFO_0000051 [
+      a vodan:Module_3 ;
+      # DISCHARGE: DIAGNOSTIC/PATHONGEN TESTING
+      obo:BFO_0000051 [
+        a vodan:pathogen_testing ;
+        obo:BFO_0000051 [
+          a vodan:Chest_imaging ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Pathogen_testing ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+      ] ;
+      # DISCHARGE: COMPLICATIONS
+      obo:BFO_0000051 [
+        a vodan:Complications ;
+        obo:BFO_0000051 [
+          a vodan:Shock ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Seizures_complications ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Meningitis_Encephalitis ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Anaemia ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Cardiac_arrhytmia ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Cardiac_arrest ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Pneumonia ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Bronchiolitis ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Acute_Respiratory_Distress_Syndrome ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Bacteraemia ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Bleeding ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Endocarditis ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Myocarditis_Pericarditis ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Myocarditis_Pericarditis ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Acute_renal_injury ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Pancreatitis ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Liver_dysfunction ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Cardiomyopathy ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Other_complication ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+      ] ;
+      # DISCHARGE: MEDICATION
+      obo:BFO_0000051 [
+        a vodan:Medication ;
+        obo:BFO_0000051 [
+          a vodan:oral_orgastric_fluids ;
+          vodan:has_value vodan_inst:C17998 ;  # UNKNOWN
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Intravenous_fluids ;
+          vodan:has_value vodan_inst:C17998 ;  # UNKNOWN
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Antiviral ;
+          vodan:has_value vodan_inst:C17998 ;  # UNKNOWN
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Corticosteroid ;
+          vodan:has_value vodan_inst:C17998 ;  # UNKNOWN
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Antibiotic ;
+          vodan:has_value vodan_inst:C17998 ;  # UNKNOWN
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Antifungal_agent ;
+          vodan:has_value vodan_inst:C17998 ;  # UNKNOWN
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Antimalarial ;
+          vodan:has_value vodan_inst:C17998 ;  # UNKNOWN
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Experimental_agent ;
+          vodan:has_value vodan_inst:C17998 ;  # UNKNOWN
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:NSAID_medication ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+      ] ;
+      # DISCHARGE: SUPPORTIVE CARE
+      obo:BFO_0000051 [
+        a vodan:Supportive_care ;
+        obo:BFO_0000051 [
+          a vodan:ICU_admission ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Oxygen_therapy ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Non-invasive_ventilation ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Invasive_ventilation ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:ECMO_support ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Prone_position ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:RRT_or_dialysis ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Prone_position ;
+          vodan:has_value vodan_inst:C49487 ;  # NO
+        ] ;
+      ] ;
+      # DISCHARGE: OUTCOME
+      obo:BFO_0000051 [
+        a vodan:Outcome ;
+        obo:BFO_0000051 [
+          a vodan:outcome_question ;
+          vodan:has_value vodan_inst:Discharged_alive ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:Ability_self_care ;
+          vodan:has_value vodan_inst:Better ;
+        ] ;
+        obo:BFO_0000051 [
+          a vodan:outcome_date ;
+          vodan:has_literal_value "2020-08-14"^^xsd:date ;
+        ] ;
+      ] ;
+    ] ;
+    # Participant ID is not assigned
+    rdfs:comment "This is WHO COVID-19 eCRF (RDF) - VODAN." .
