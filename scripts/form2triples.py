@@ -29,16 +29,14 @@ negative = rdflib.URIRef('http://purl.org/vodan/whocovid19crfsemdatamodel/instan
 positive = rdflib.URIRef('http://purl.org/vodan/whocovid19crfsemdatamodel/instances/Positive')
 unit_label = rdflib.URIRef('http://purl.obolibrary.org/obo/IAO_0000039')
 site_id = 'EMPTY'
-project_path = '/home/queralt/Documents/nuria/workspace/fair-data'
 
 # input
-data_path = '{}/data/who-crf'.format(project_path)
+data_path = '../in/who-crf/'
 csv_path = '{}/form/'.format(data_path)
 variable_path = '{}/vars/'.format(data_path)
 
 # output
-sdata_path = '{}/output/synthetic-data/'.format(project_path)
-if not os.path.isdir(sdata_path): os.makedirs(sdata_path)
+if not os.path.isdir(data_path): os.makedirs(data_path)
 
 # semantic model
 onto.load('https://github.com/FAIRDataTeam/WHO-COVID-CRF/raw/master/WHO_COVID-19_Rapid_Version_CRF_Ontology.owl')
@@ -281,4 +279,4 @@ for csv_file in readfiles:
                         #print(answer)
                     column += 1
 
-g.serialize(sdata_path + file_base_name + '_rdf.ttl', format='ttl')
+g.serialize(data_path + file_base_name + '.ttl', format='ttl')

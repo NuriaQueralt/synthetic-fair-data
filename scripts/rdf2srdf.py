@@ -19,9 +19,7 @@ rdf_in = rdflib.Graph()
 ont_owl = 'https://github.com/FAIRDataTeam/WHO-COVID-CRF/raw/master/WHO_COVID-19_Rapid_Version_CRF_Ontology.owl'
 
 # rdf data
-old_who_ttl = '/home/queralt/Documents/nuria/workspace/fair-data/' \
-           'WHO-COVID-CRF/Script/synth-sampler/form2triples-py3.8/New_version_CRF_WHO_-_16Apr2020_rdf.ttl'
-who_ttl = '/home/queralt/Documents/nuria/workspace/fair-data/data/who-crf/vodan/test_report_dsw_rajaram.ttl'
+who_ttl = '../in/who-crf/vodan/test_report_dsw_rajaram.ttl'
 
 # script
 # load semantic model
