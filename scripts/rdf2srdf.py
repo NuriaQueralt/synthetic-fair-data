@@ -52,25 +52,39 @@ question2ontoPath = dict()
 
 # find IL-6 subclass structure
 c = rdflib.URIRef("http://purl.org/vodan/whocovid19crfsemdatamodel/IL-6")
-pprint.pprint(ont.preferredLabel(c, lang="en"))
-pprint.pprint(ont.objects(subject=c, predicate=rdflib.RDFS.subClassOf))
-pprint.pprint(type(ont.objects(subject=c, predicate=rdflib.RDFS.subClassOf)))
-for parent in ont.objects(subject=c, predicate=rdflib.RDFS.subClassOf):
-    pprint.pprint(parent)
+# pprint.pprint(ont.preferredLabel(c, lang="en"))
+# pprint.pprint(ont.objects(subject=c, predicate=rdflib.RDFS.subClassOf))
+# pprint.pprint(type(ont.objects(subject=c, predicate=rdflib.RDFS.subClassOf)))
+# for parent in ont.objects(subject=c, predicate=rdflib.RDFS.subClassOf):
+#     pprint.pprint(parent)
 
 # class
-question_type_list = list()
-for subclass in ont.objects(c, rdflib.RDFS.subClassOf):
-    pprint.pprint(subclass)
+print("* Parsing IL-6 question.\n  Class information:  ")
+types_dict = dict()
+for type in ont.objects(c, rdflib.RDFS.subClassOf):
+    if isinstance(type, rdflib.term.URIRef):
+        parent_class = type
+    types_dict.update({type: 1})
 
+print("\t- subclass of {} classes: {}".format(len(types_dict), types_dict))
+
+labels_dict = dict()
 for label in ont.objects(c, rdflib.RDFS.label):
-    pprint.pprint(label)
+    labels_dict.update({label: 1})
+
+print("\t- {} labels: {}".format(len(labels_dict), labels_dict))
 
 for preflabel in ont.objects(c, rdflib.SKOS.prefLabel):
-    pprint.pprint(preflabel)
+    print("\t- preferred label: {}".format(preflabel))
 
 # parent class
-
+print("\n  Parent class information:")
+print("  {} is subclass of:".format(parent_class))
+for parent in ont.objects(parent_class, rdflib.RDFS.subClassOf):
+    if isinstance(parent, rdflib.URIRef):
+        print("\t- {} ({})".format(parent, ont.preferredLabel(parent, lang="en")[0][1]))
+    else:
+        print("\t- {}".format(parent))
 
 # RULES/RANGES
 # { question: { rules: axioms, ranges: { dec, max, min }, units: unit_list } }
