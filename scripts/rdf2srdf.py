@@ -62,11 +62,37 @@ c = rdflib.URIRef("http://purl.org/vodan/whocovid19crfsemdatamodel/IL-6")
 print("* Parsing IL-6 question.\n  Class information:  ")
 types_dict = dict()
 for type in ont.objects(c, rdflib.RDFS.subClassOf):
-    if isinstance(type, rdflib.term.URIRef):
+    # if parent class is an atomic class (concept or IRI)
+    if isinstance(type, rdflib.URIRef):
         parent_class = type
+    # if parent class is a class expression (anonymous class or complex concept or BNode)
+    constructor_dict = dict()
+    axiom_list = list()
+    if isinstance(type, rdflib.BNode):
+        # has_measurement_unit_label value pg/ml (object property individual value restriction)
+        for s,p,o in ont.triples((type,None,None)):
+            axiom_list.append({p:o})
+        constructor_dict[s]= axiom_list
+            #print(s,p,o)
+
     types_dict.update({type: 1})
 
-print("\t- subclass of {} classes: {}".format(len(types_dict), types_dict))
+print("\t- subclass of {} classes: {}".format(len(types_dict), types_dict.keys()))
+print("\t\t subclass of atomic class: '{}'".format(parent_class))
+print("\t\t subclass of axioms class:")
+first_triple = 1
+for anonymous_class_id in constructor_dict:
+    if first_triple:
+        first_triple = 0
+        print("\t\t [ {}".format(anonymous_class_id))
+    for axiom in range(len(constructor_dict[anonymous_class_id])):
+        for predicate, value in constructor_dict[anonymous_class_id][axiom].items():
+            if axiom < len(constructor_dict[anonymous_class_id])-1:
+                print("\t\t   {} {} ;".format(predicate,value))
+            else:
+                print("\t\t   {} {} .".format(predicate,value))
+        # print("\t\t   {} {} ;".format(predicate,constructor_dict[anonymous_class_id][axiom].values()))
+print("\t\t ]".format(s))
 
 labels_dict = dict()
 for label in ont.objects(c, rdflib.RDFS.label):
@@ -80,11 +106,20 @@ for preflabel in ont.objects(c, rdflib.SKOS.prefLabel):
 # parent class
 print("\n  Parent class information:")
 print("  {} is subclass of:".format(parent_class))
-for parent in ont.objects(parent_class, rdflib.RDFS.subClassOf):
-    if isinstance(parent, rdflib.URIRef):
-        print("\t- {} ({})".format(parent, ont.preferredLabel(parent, lang="en")[0][1]))
-    else:
-        print("\t- {}".format(parent))
+# for parent in ont.objects(parent_class, rdflib.RDFS.subClassOf):
+#     if isinstance(parent, rdflib.URIRef):
+#         print("\t- {} ({})".format(parent, ont.preferredLabel(parent, lang="en")[0][1]))
+#     else:
+#         print("\t- {}".format(parent))
+        # part_of
+        # has_literal_value union
+        # has_other_measurement_unit_label
+
+# print subclasses triples or axioms (the ones which are BNodes)
+print("\n Parent class axioms")
+print("  'part_of' predicates:")
+# for s, p, o in ont.triples((None, rdflib.OWL.onProperty, rdflib.URIRef("http://purl.obolibrary.org/obo/BFO_0000050"))):
+#     print(s)
 
 # RULES/RANGES
 # { question: { rules: axioms, ranges: { dec, max, min }, units: unit_list } }
