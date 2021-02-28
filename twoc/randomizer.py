@@ -25,7 +25,7 @@ while i <= N:
        if i <= S_noticu*0.9:
           M = 1
        else:
-          M = 1
+          M = 0
        P = "gaussian value"
     else:   
        S = 1
