@@ -23,10 +23,6 @@ writer = csv.DictWriter(f, fieldnames=fieldNames)
 writer.writeheader()
 
 # algorithm
-#print("Number of patients: {}".format(N))
-#print("Number of not severe patients (not icu): {}, severe(icu): {}".format(S_noticu, S_icu))
-#print("Number of not severe patients on D: {}, severe not in D: {}".format(S_noticu*0.9, S_noticu + S_icu*0.9))
-
 i = 1
 while i <= N:
     # not severe patients (not ICU)
@@ -50,7 +46,6 @@ while i <= N:
        # PGE2 level: assign random value from a negative skew normal distribution, [0.0, 1.0] mean=0.95
        P = abs(skewnorm.rvs(a=0.1, loc=0.95, scale=1))
     
-    print("i: {}, S: {}, M: {}, P:{}".format(i, S, M, P))
     writer.writerow({'Patient_number': i, 'S': S, 'M': M, 'P': round(P,4)})
     i += 1
 
